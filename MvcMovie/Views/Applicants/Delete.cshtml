@@ -1,0 +1,60 @@
+﻿@model MvcMovie.Models.Applicant
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Applicant</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DOB)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DOB)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Languages)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Languages)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.YearsExp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.YearsExp)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Degree)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Degree)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.State)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
