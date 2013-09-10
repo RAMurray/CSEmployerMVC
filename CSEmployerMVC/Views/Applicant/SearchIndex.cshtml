@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CSEmployerMVC.Models.Applicant>
+
+@{
+    ViewBag.Title = "Search Index";
+}
+
+<h2>Search Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+     @using (Html.BeginForm()){    
+         <p><b>Degree</b>: @Html.DropDownList("appDegree", "All") <span style="width:20px">&nbsp;</span>
+         <b>Known Langauges</b>: @Html.TextBox("SearchString")
+         <input type="submit" value="Filter" /></p> 
+        }
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>Name</th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>Location</th>
+        <!--<th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th> -->
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Degree)
+        </th>
+        <th>Experience</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Languages)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+       <!-- <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td> -->
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Degree)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Experience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Languages)
+        </td>
+        <td>
+           @Html.ActionLink("Details", "Details", new { id=item.ID })
+        </td>
+    </tr>
+}
+    <!-- actionlink("Text", "link") -->
+</table>
