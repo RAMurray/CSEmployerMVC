@@ -44,6 +44,17 @@
         </footer -->
 
         @Scripts.Render("~/bundles/jquery")
+        <script type='text/javascript'>
+
+            $('.subrow').hide();
+            $('.mainrow').click(function () {
+                $(this).find('section').html(function (_, value) { return value == '<span class="glyphicon glyphicon-plus"></span>' ? '<span class="glyphicon glyphicon-minus"></span>' : '<span class="glyphicon glyphicon-plus"></span>' });
+                $(this).nextUntil('tr.mainrow').slideToggle(100, function () {
+              });
+            });
+        </script>
+
+
         @RenderSection("scripts", required: false)
     </body>
 </html>
