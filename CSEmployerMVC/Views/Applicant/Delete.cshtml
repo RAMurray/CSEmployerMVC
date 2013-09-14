@@ -10,93 +10,44 @@
 <fieldset>
     <legend>Applicant</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.FName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.FName)
-    </div>
+     <dl class="dl-horizontal">
+        <dt>First Name</dt>
+        <dd>@Html.DisplayFor(model => model.FName)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.LName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.LName)
-    </div>
+        <dt>Last Name</dt>
+        <dd>@Html.DisplayFor(model => model.LName)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DOB)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DOB)
-    </div>
+        <dt>Date of Birth</dt>
+        <dd>@Html.DisplayFor(model => model.DOB)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.City)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.City)
-    </div>
+        <dt>City</dt>
+        <dd>@Html.DisplayFor(model => model.City)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.State)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.State)
-    </div>
+        <dt>State</dt>
+        <dd>@Html.DisplayFor(model => model.State)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Email)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Email)
-    </div>
+        <dt>Email</dt>
+        <dd>@Html.DisplayFor(model => model.Email)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Phone)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Phone)
-    </div>
+        <dt>Phone Number</dt>
+        <dd>@Html.DisplayFor(model => model.Phone)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.JobTitle)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.JobTitle)
-    </div>
+        <dt>Job Title</dt>
+        <dd>@Html.DisplayFor(model => model.JobTitle)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Degree)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Degree)
-    </div>
+        <dt>Highest Degree</dt>
+        <dd>@Html.DisplayFor(model => model.Degree)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.YearsExp)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.YearsExp)
-    </div>
+        <dt>Years of Experience</dt>
+        <dd>@Html.DisplayFor(model => model.YearsExp)</dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Languages)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Languages)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.FullName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.FullName)
-    </div>
+        <dt>Known Languages</dt>
+        <dd>@Html.DisplayFor(model => model.Languages)</dd>
+    </dl>
 </fieldset>
 @using (Html.BeginForm()) {
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Delete" /> 
+        <button type="button" class="btn btn-warning" title="Admin" value="D" onclick="location.href='@Url.Action("Index", "Applicant")'">Back to List</button>
     </p>
 }

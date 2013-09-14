@@ -7,9 +7,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+     <button type="button" class="btn btn-primary" title="Create New" value="C" onclick="location.href='@Url.Action("Create", "Applicant")'">Create New</button>
+    <!-- @Html.ActionLink("Create New", "Create") -->
 </p>
-<table>
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FName)
@@ -43,9 +44,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Languages)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
         </th>
         <th></th>
     </tr>
@@ -86,12 +84,14 @@
             @Html.DisplayFor(modelItem => item.Languages)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) 
+            <!-- @Html.ActionLink("Edit", "Edit", new { id=item.ID }) 
             @Html.ActionLink("Details", "Details", new { id=item.ID }) 
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }) -->
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-default" title="Edit" value="E" onclick="location.href='@Url.Action("Edit", "Applicant", new { id = item.ID })'">Edit</button>
+                <button type="button" class="btn btn-info" title="Details" value="T" onclick="location.href='@Url.Action("Details", "Applicant", new { id = item.ID })'">Details</button>
+                <button type="button" class="btn btn-danger" title="Delete" value="D" onclick="location.href='@Url.Action("Delete", "Applicant", new { id = item.ID })'">Delete</button>
+            </div>
         </td>
     </tr>
 }

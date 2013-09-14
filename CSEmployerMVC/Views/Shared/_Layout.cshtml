@@ -16,14 +16,16 @@
                     <h1>@Html.ActionLink("CS Employer", "Index", "Home")</h1>
                 </div>               
                 <div class="top-nav">
-                    <section id="login">
+                    <!-- section id="login">
                         @Html.Partial("_LoginPartial")
-                    </section>
+                    </-->
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Search", "SearchIndex", "Applicant")</li>
+                            <li>@Html.ActionLink("Admin", "Index", "Applicant")</li>
                         </ul>
                     </nav>
                 </div>
@@ -35,13 +37,13 @@
                @RenderBody()
             </section>
         </div>
-        <!--footer>
+        <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    <p><br />&copy; @DateTime.Now.Year - Computer Science Employer - ASP.NET MVC4</p>
                 </div>
             </div>
-        </footer -->
+        </footer>
 
         @Scripts.Render("~/bundles/jquery")
         <script type='text/javascript'>
