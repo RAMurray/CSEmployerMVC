@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace CSEmployerMVC.Models
 {
@@ -45,6 +46,11 @@ namespace CSEmployerMVC.Models
 
         [Required]
         public string Languages { get; set; }
+
+        public byte[] File { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string FileMimeType { get; set; }
 
         public string FullName
         {

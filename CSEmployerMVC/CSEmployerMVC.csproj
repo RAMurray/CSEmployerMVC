@@ -177,6 +177,10 @@
     <Compile Include="Migrations\201309092145136_InitialStart.Designer.cs">
       <DependentUpon>201309092145136_InitialStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201309221736360_FileUploading.cs" />
+    <Compile Include="Migrations\201309221736360_FileUploading.Designer.cs">
+      <DependentUpon>201309221736360_FileUploading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Applicant.cs" />
@@ -324,6 +328,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201309092145136_InitialStart.resx">
       <DependentUpon>201309092145136_InitialStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309221736360_FileUploading.resx">
+      <DependentUpon>201309221736360_FileUploading.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
