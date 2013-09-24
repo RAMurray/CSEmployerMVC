@@ -75,14 +75,24 @@ namespace CSEmployerMVC.Controllers
         // POST: /Applicant/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Applicant applicant)
+        // HttpPostedFileBase parameter name must be the lower case of the parameter used in the call from
+        // the view
+        public ActionResult Edit(Applicant applicant, HttpPostedFileBase resume)
         {
             if (ModelState.IsValid)
             {
+                if (resume != null)
+                {
+                    applicant.FileMimeType = resume.ContentType;
+                    applicant.File = new byte[resume.ContentLength];
+                    resume.InputStream.Read(applicant.File, 0, resume.ContentLength);
+                }
+
                 db.Entry(applicant).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(applicant);
         }
 
@@ -137,6 +147,19 @@ namespace CSEmployerMVC.Controllers
                 return View(applicants.Where(x => x.Degree == appDegree));
             }
 
+        }
+
+        public FileContentResult GetFile(int id)
+        {
+            Applicant applicant = db.Applicants.FirstOrDefault(a => a.ID == id);
+            if (applicant != null)
+            {
+                return File(applicant.File, applicant.FileMimeType);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         protected override void Dispose(bool disposing)
