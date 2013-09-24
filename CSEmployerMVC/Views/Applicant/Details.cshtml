@@ -42,7 +42,18 @@
 
         <dt>Known Languages</dt>
         <dd>@Html.DisplayFor(model => model.Languages)</dd>
+
+        <dt>Resume</dt>
+        <dd>
+    @if (Model.File == null) {
+        @:None
+    } else {
+        <a id="downloadLink" href="@Url.Action("GetFile", "Applicant", new { id=Model.ID })" target="_blank" type="application/octet-stream" download="resume.pdf">Download</a>
+    }
+            
+        </dd>
     </dl>
+
 </fieldset>
 <!--p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
