@@ -10,44 +10,107 @@
 <fieldset>
     <legend>Applicant</legend>
 
-     <dl class="dl-horizontal">
-        <dt>First Name</dt>
-        <dd>@Html.DisplayFor(model => model.FName)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FName)
+    </div>
 
-        <dt>Last Name</dt>
-        <dd>@Html.DisplayFor(model => model.LName)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LName)
+    </div>
 
-        <dt>Date of Birth</dt>
-        <dd>@Html.DisplayFor(model => model.DOB)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DOB)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DOB)
+    </div>
 
-        <dt>City</dt>
-        <dd>@Html.DisplayFor(model => model.City)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
 
-        <dt>State</dt>
-        <dd>@Html.DisplayFor(model => model.State)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Zip)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zip)
+    </div>
 
-        <dt>Email</dt>
-        <dd>@Html.DisplayFor(model => model.Email)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
 
-        <dt>Phone Number</dt>
-        <dd>@Html.DisplayFor(model => model.Phone)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.State)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
 
-        <dt>Job Title</dt>
-        <dd>@Html.DisplayFor(model => model.JobTitle)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Country)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country)
+    </div>
 
-        <dt>Highest Degree</dt>
-        <dd>@Html.DisplayFor(model => model.Degree)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
 
-        <dt>Years of Experience</dt>
-        <dd>@Html.DisplayFor(model => model.YearsExp)</dd>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
 
-        <dt>Known Languages</dt>
-        <dd>@Html.DisplayFor(model => model.Languages)</dd>
-    </dl>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fax)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fax)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Degree)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Degree)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FullName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FullName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location)
+    </div>
 </fieldset>
 @using (Html.BeginForm()) {
     <p>
-        <input type="submit" value="Delete" /> 
-        <button type="button" class="btn btn-warning" title="Admin" value="D" onclick="location.href='@Url.Action("Index", "Applicant")'">Back to List</button>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
     </p>
 }

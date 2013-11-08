@@ -6,12 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CSEmployerMVC.Models;
+using CSEmployerMVC.Classes;
 
 namespace CSEmployerMVC.Controllers
 {
     public class ApplicantController : Controller
     {
-        private ApplicantDBContext db = new ApplicantDBContext();
+        private CSEDataContext db = new CSEDataContext();
 
         //
         // GET: /Applicant/
@@ -39,6 +40,9 @@ namespace CSEmployerMVC.Controllers
 
         public ActionResult Create()
         {
+            List<string> listOfDegrees = new List<string>() { "G.E.D", "Certificate", "Bachelor's", "Master's", "P.H.D" };
+
+            ViewBag.ListofDegrees = listOfDegrees;
             return View();
         }
 
@@ -46,7 +50,7 @@ namespace CSEmployerMVC.Controllers
         // POST: /Applicant/Create
 
         [HttpPost]
-        public ActionResult Create(Applicant applicant)
+        public ActionResult Create(Applicant applicant, string knownLangauges)
         {
             if (ModelState.IsValid)
             {
@@ -75,24 +79,14 @@ namespace CSEmployerMVC.Controllers
         // POST: /Applicant/Edit/5
 
         [HttpPost]
-        // HttpPostedFileBase parameter name must be the lower case of the parameter used in the call from
-        // the view
-        public ActionResult Edit(Applicant applicant, HttpPostedFileBase resume)
+        public ActionResult Edit(Applicant applicant)
         {
             if (ModelState.IsValid)
             {
-                if (resume != null)
-                {
-                    applicant.FileMimeType = resume.ContentType;
-                    applicant.File = new byte[resume.ContentLength];
-                    resume.InputStream.Read(applicant.File, 0, resume.ContentLength);
-                }
-
                 db.Entry(applicant).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(applicant);
         }
 
@@ -121,15 +115,16 @@ namespace CSEmployerMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        //Search Index
-        public ActionResult SearchIndex(string appDegree, string searchString)
+        //Search
+        public ActionResult Search(Enum appDegree, string searchString)
         {
             var DegreeLst = new List<string>();
 
             var DegreeQry = from d in db.Applicants
                             orderby d.Degree
                             select d.Degree;
-            DegreeLst.AddRange(DegreeQry.Distinct());
+    
+            //DegreeLst.AddRange(DegreeQry.Distinct());
             ViewBag.appDegree = new SelectList(DegreeLst);
 
             var applicants = from m in db.Applicants
@@ -137,30 +132,21 @@ namespace CSEmployerMVC.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                applicants = applicants.Where(s => s.Languages.Contains(searchString));
+                applicants = applicants.Where(s => s.KnownLanguages.Contains(searchString));
             }
 
-            if (string.IsNullOrEmpty(appDegree))
+
+            //if (string.IsNullOrEmpty(appDegree.ToString()))
                 return View(applicants);
-            else
+            /*else
             {
                 return View(applicants.Where(x => x.Degree == appDegree));
-            }
+            }*/
 
         }
 
-        public FileContentResult GetFile(int id)
-        {
-            Applicant applicant = db.Applicants.FirstOrDefault(a => a.ID == id);
-            if (applicant != null)
-            {
-                return File(applicant.File, applicant.FileMimeType);
-            }
-            else
-            {
-                return null;
-            }
-        }
+
+
 
         protected override void Dispose(bool disposing)
         {

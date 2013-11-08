@@ -1,33 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using System.Data.Entity;
-using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace CSEmployerMVC.Models
 {
+
+    public enum Degrees
+    {
+        GED,
+        Certificate,
+        Bachelors,
+        Masters,
+        PHD
+    }
+
+
     public class Applicant
     {
         public int ID { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         public string FName { get; set; }
 
+
         [Required]
+        [Display(Name = "Last Name")]
         public string LName { get; set; }
 
+
         [DataType(DataType.Date)]
+        [Display(Name = "Date of Birth")]
+        [DisplayFormat(DataFormatString = "{0:yyyy MMM d}", ApplyFormatInEditMode = true)]
         public DateTime DOB { get; set; }
+
+        [StringLength(30)]
+        public string Address { get; set; }
+
+        [StringLength(10)]
+        public string Zip { get; set; }
 
         [Required]
         [StringLength(30)]
         public string City { get; set; }
 
-        [Required]
         [StringLength(2)]
         public string State { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        public string Country { get; set; }
 
         [StringLength(30)]
         public string Email { get; set; }
@@ -35,43 +60,46 @@ namespace CSEmployerMVC.Models
         [StringLength(16)]
         public string Phone { get; set; }
 
-        [Required]
-        public string JobTitle { get; set; }
+        [StringLength(16)]
+        public string Fax { get; set; }
 
         [Required]
-        public string Degree { get; set; }
+        [UIHint("Enum")]
+        public Degrees Degree { get; set; }
 
-        [Range(1, 100)]
+        [Display(Name = "Years Exp.")]
+        [Required]
         public int YearsExp { get; set; }
 
-        [Required]
-        public string Languages { get; set; }
+        //Programing Langauges
+        public string KnownPL1 { get; set; }
 
-        public byte[] File { get; set; }
+        public string KnownPL2 { get; set; }
 
-        [HiddenInput(DisplayValue = false)]
-        public string FileMimeType { get; set; }
+        public string KnownPL3 { get; set; }
+
+        public string KnownPL4 { get; set; }
+
+        public string KnownPL5 { get; set; }
+
+
+        public virtual List List { get; set; }
+        public ICollection<PGLanguage> PGLanguages { get; set; }
 
         public string FullName
         {
             get { return FName + " " + LName; }
         }
 
-        public string Experience
-        {
-            get { return YearsExp + " Years"; }
-        }
-
         public string Location
         {
-            get { return City + ", " + State; }
+            get { return City + ", " + State + ", " + Country; }
         }
 
-        //public virtual ICollection<Resume> Resume { get; set; }
+        public string KnownLanguages
+        {
+            get { return KnownPL1 + " " + KnownPL2 + " " + KnownPL3 + " " + KnownPL4 + " " + KnownPL5; }
+        }
 
-    }
-    public class ApplicantDBContext : DbContext
-    {
-        public DbSet<Applicant> Applicants { get; set; }
     }
 }

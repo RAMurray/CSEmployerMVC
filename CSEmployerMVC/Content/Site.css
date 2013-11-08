@@ -1,4 +1,6 @@
-﻿html {
+﻿@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+
+html {
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;
@@ -355,7 +357,7 @@ aside {
             padding: 2px 0 2px 20px;
         }
 
-.label {
+.label, h4 {
     font-weight: 700;
 }
 
@@ -448,7 +450,7 @@ fieldset {
             padding-bottom: 5px;
         }
 
-label {
+label, h4 {
     display: block;
     font-size: 1.2em;
     font-weight: 600;
@@ -679,13 +681,13 @@ tr.pager td {
         margin-bottom: 5px;
     }
 
-    ul#menu {
+    ul #menu {
         margin: 0;
         padding: 0;
         text-align: center;
     }
 
-        ul#menu li {
+        ul #menu li {
             margin: 0;
             padding: 0;
         }

@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm("Edit", "Applicant", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+@using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
@@ -39,6 +39,22 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Zip)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Zip)
+            @Html.ValidationMessageFor(model => model.Zip)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.City)
         </div>
         <div class="editor-field">
@@ -52,6 +68,14 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.State)
             @Html.ValidationMessageFor(model => model.State)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Country)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Country)
+            @Html.ValidationMessageFor(model => model.Country)
         </div>
 
         <div class="editor-label">
@@ -71,11 +95,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.JobTitle)
+            @Html.LabelFor(model => model.Fax)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.JobTitle)
-            @Html.ValidationMessageFor(model => model.JobTitle)
+            @Html.EditorFor(model => model.Fax)
+            @Html.ValidationMessageFor(model => model.Fax)
         </div>
 
         <div class="editor-label">
@@ -86,34 +110,6 @@
             @Html.ValidationMessageFor(model => model.Degree)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.YearsExp)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.YearsExp)
-            @Html.ValidationMessageFor(model => model.YearsExp)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Languages)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Languages)
-            @Html.ValidationMessageFor(model => model.Languages)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.File)
-        </div>
-        <div class="editor-field">
-            @* 
-               The input name 'Resume' is significant. When the controller is called it looks for the
-               lower case version of this word 'resume'.
-            *@
-            <input type="file" name="Resume" />
-            @Html.ValidationMessageFor(model => model.File)
-        </div>
-
         <p>
             <input type="submit" value="Save" />
         </p>
@@ -121,7 +117,7 @@
 }
 
 <div>
-    <button type="button" class="btn btn-warning" title="Admin" value="D" onclick="location.href='@Url.Action("Index", "Applicant")'">Back to List</button>
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
