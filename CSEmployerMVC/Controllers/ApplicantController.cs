@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -116,37 +116,38 @@ namespace CSEmployerMVC.Controllers
         }
 
         //Search
-        public ActionResult Search(Enum appDegree, string searchString)
+        public ActionResult Search(string searchString)
         {
+            /*
             var DegreeLst = new List<string>();
 
             var DegreeQry = from d in db.Applicants
                             orderby d.Degree
-                            select d.Degree;
-    
-            //DegreeLst.AddRange(DegreeQry.Distinct());
-            ViewBag.appDegree = new SelectList(DegreeLst);
+                            select d.Degree;*/
+
+            //DegreeLst.AddRange(DQ.Distinct());
+
+           // ViewBag.appDegree = new SelectList(DegreeLst);
 
             var applicants = from m in db.Applicants
                              select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                applicants = applicants.Where(s => s.KnownLanguages.Contains(searchString));
+                applicants = applicants.Where(s => s.KnownPL1.Contains(searchString) || s.KnownPL2.Contains(searchString) || s.KnownPL3.Contains(searchString) || s.KnownPL4.Contains(searchString) ||  s.KnownPL5.Contains(searchString));
             }
 
 
-            //if (string.IsNullOrEmpty(appDegree.ToString()))
-                return View(applicants);
-            /*else
+            /*if (appDegree.Equals(0))
+                return View(applicants.Where(x => x.Degree.Equals(appDegree)));
+            else
             {
-                return View(applicants.Where(x => x.Degree == appDegree));
-            }*/
+                return View(applicants.Where(x => x.Degree.Equals(appDegree)));
+            } */
+       
+            return View(applicants);
 
         }
-
-
-
 
         protected override void Dispose(bool disposing)
         {
