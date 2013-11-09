@@ -10,8 +10,8 @@
 <p>
   <!-- @Html.ActionLink("Create New", "Create") -->
      @using (Html.BeginForm()){
-         <p><b>Degree</b>: @Html.DropDownList("appDegree", "All") <span style="width:20px">&nbsp;</span>
-         <b>Known Langauges</b>: @Html.TextBox("SearchString")
+         <p>
+         <b>Known Langauges</b>: @Html.TextBox("SearchString")<span style="width:20px">&nbsp;</span>
          <input type="submit" value="Filter" /></p>
         }
 </p>
