@@ -118,32 +118,42 @@ namespace CSEmployerMVC.Controllers
         //Search
         public ActionResult Search(string searchString)
         {
-            /*
-            var DegreeLst = new List<string>();
-
-            var DegreeQry = from d in db.Applicants
-                            orderby d.Degree
-                            select d.Degree;*/
-
-            //DegreeLst.AddRange(DQ.Distinct());
-
-           // ViewBag.appDegree = new SelectList(DegreeLst);
-
             var applicants = from m in db.Applicants
                              select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                applicants = applicants.Where(s => s.KnownPL1.Contains(searchString) || s.KnownPL2.Contains(searchString) || s.KnownPL3.Contains(searchString) || s.KnownPL4.Contains(searchString) ||  s.KnownPL5.Contains(searchString));
+                applicants = applicants.Where(s => s.KnownPL1.Contains(searchString) || s.KnownPL2.Contains(searchString) || s.KnownPL3.Contains(searchString) || s.KnownPL4.Contains(searchString) || s.KnownPL5.Contains(searchString));
+               
+                switch (searchString)
+                {
+                    case "GED":
+                        applicants = from a in db.Applicants
+                                where a.Degree == Degrees.GED
+                                select a;
+                        break;
+                    case "Certificate":
+                        applicants = from a in db.Applicants
+                                     where a.Degree == Degrees.Certificate
+                                     select a;
+                        break;
+                    case "Bachelors":
+                        applicants = from a in db.Applicants
+                                     where a.Degree == Degrees.Bachelors
+                                     select a;
+                        break;
+                    case "Masters":
+                        applicants = from a in db.Applicants
+                                     where a.Degree == Degrees.Masters
+                                     select a;
+                        break;
+                    case "PHD":
+                        applicants = from a in db.Applicants
+                                     where a.Degree == Degrees.PHD
+                                     select a;
+                        break;
+                }
             }
-
-
-            /*if (appDegree.Equals(0))
-                return View(applicants.Where(x => x.Degree.Equals(appDegree)));
-            else
-            {
-                return View(applicants.Where(x => x.Degree.Equals(appDegree)));
-            } */
        
             return View(applicants);
 
