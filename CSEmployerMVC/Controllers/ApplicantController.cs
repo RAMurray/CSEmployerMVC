@@ -117,6 +117,7 @@ namespace CSEmployerMVC.Controllers
 
         //Search
 <<<<<<< HEAD
+<<<<<<< HEAD
         public ActionResult Search(string searchString, string CLName, string Password)
         {
             var applicants = db.Applicants.Include( a => a.Jobs);
@@ -125,6 +126,10 @@ namespace CSEmployerMVC.Controllers
 =======
         public ActionResult Search(string searchString)
         {
+=======
+        public ActionResult Search(string searchString)
+        {
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
             var applicants = from m in db.Applicants
                              select m;
 >>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
@@ -133,7 +138,11 @@ namespace CSEmployerMVC.Controllers
             {
                 applicants = applicants.Where(s => s.KnownPL1.Contains(searchString) || s.KnownPL2.Contains(searchString) || s.KnownPL3.Contains(searchString) || s.KnownPL4.Contains(searchString) || s.KnownPL5.Contains(searchString));
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+               
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
 =======
                
 >>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
@@ -142,8 +151,13 @@ namespace CSEmployerMVC.Controllers
                     case "GED":
                         applicants = from a in db.Applicants
 <<<<<<< HEAD
+<<<<<<< HEAD
                                      where a.Degree == Degrees.GED
                                      select a;
+=======
+                                where a.Degree == Degrees.GED
+                                select a;
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
 =======
                                 where a.Degree == Degrees.GED
                                 select a;
@@ -172,6 +186,7 @@ namespace CSEmployerMVC.Controllers
                 }
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
              /*if (!String.IsNullOrEmpty(Password) && !String.IsNullOrEmpty(CLName))
              {
@@ -182,10 +197,14 @@ namespace CSEmployerMVC.Controllers
 =======
        
 >>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
+=======
+       
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
             return View(applicants);
 
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
       /*  private void addToCandidates(string Password = null, string CLName = null)
         {
@@ -210,6 +229,8 @@ namespace CSEmployerMVC.Controllers
             }
         }*/
 
+=======
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
 =======
 >>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
         protected override void Dispose(bool disposing)
