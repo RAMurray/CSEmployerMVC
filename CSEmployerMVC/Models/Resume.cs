@@ -21,6 +21,8 @@ namespace CSEmployerMVC.Models
         //[ValidateFile(ErrorMessage = "Please select a PNG image smaller than 1MB")]
         public byte[] FileData { get; set; }
 
+        public string Content { get; set; }
+
         public string FileName { get; set; }
     }
 }

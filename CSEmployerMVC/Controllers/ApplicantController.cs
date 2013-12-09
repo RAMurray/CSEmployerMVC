@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -116,38 +116,102 @@ namespace CSEmployerMVC.Controllers
         }
 
         //Search
-        public ActionResult Search(Enum appDegree, string searchString)
+<<<<<<< HEAD
+        public ActionResult Search(string searchString, string CLName, string Password)
         {
-            var DegreeLst = new List<string>();
+            var applicants = db.Applicants.Include( a => a.Jobs);
 
-            var DegreeQry = from d in db.Applicants
-                            orderby d.Degree
-                            select d.Degree;
-    
-            //DegreeLst.AddRange(DegreeQry.Distinct());
-            ViewBag.appDegree = new SelectList(DegreeLst);
-
+            ViewBag.ConcurrencyErrorMessage = "Test, please ignore.";
+=======
+        public ActionResult Search(string searchString)
+        {
             var applicants = from m in db.Applicants
                              select m;
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                applicants = applicants.Where(s => s.KnownLanguages.Contains(searchString));
+                applicants = applicants.Where(s => s.KnownPL1.Contains(searchString) || s.KnownPL2.Contains(searchString) || s.KnownPL3.Contains(searchString) || s.KnownPL4.Contains(searchString) || s.KnownPL5.Contains(searchString));
+<<<<<<< HEAD
+
+=======
+               
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
+                switch (searchString)
+                {
+                    case "GED":
+                        applicants = from a in db.Applicants
+<<<<<<< HEAD
+                                     where a.Degree == Degrees.GED
+                                     select a;
+=======
+                                where a.Degree == Degrees.GED
+                                select a;
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
+                        break;
+                    case "Certificate":
+                        applicants = from a in db.Applicants
+                                     where a.Degree == Degrees.Certificate
+                                     select a;
+                        break;
+                    case "Bachelors":
+                        applicants = from a in db.Applicants
+                                     where a.Degree == Degrees.Bachelors
+                                     select a;
+                        break;
+                    case "Masters":
+                        applicants = from a in db.Applicants
+                                     where a.Degree == Degrees.Masters
+                                     select a;
+                        break;
+                    case "PHD":
+                        applicants = from a in db.Applicants
+                                     where a.Degree == Degrees.PHD
+                                     select a;
+                        break;
+                }
             }
+<<<<<<< HEAD
+
+             /*if (!String.IsNullOrEmpty(Password) && !String.IsNullOrEmpty(CLName))
+             {
+                addToCandidates(Password, CLName);
+             }*/
 
 
-            //if (string.IsNullOrEmpty(appDegree.ToString()))
-                return View(applicants);
-            /*else
-            {
-                return View(applicants.Where(x => x.Degree == appDegree));
-            }*/
+=======
+       
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
+            return View(applicants);
 
         }
 
+<<<<<<< HEAD
+      /*  private void addToCandidates(string Password = null, string CLName = null)
+        {
+            Applicant candidate = db.Applicants.Find(CLName);
+            Employer epassword = db.Employers.Find(Password);
 
+            var job = from j in db.Jobs
+                      select j;
 
+            List<Applicant> CandidateList = new List<Applicant>();
 
+            if (candidate == null || epassword == null)
+            {
+                ViewBag.ConcurrencyErrorMessage = "Invalid entry. Either Password is incorrect or that Applicant doesn't exists.";
+            }
+            else
+            {
+                var CList = db.Jobs.Where(x => x.Employer.ePassword == Password).Select(x => x.CandidatesList);
+
+                C
+
+            }
+        }*/
+
+=======
+>>>>>>> c8e83b6cf0a323f064d598f6ad7414f46e46e9b2
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

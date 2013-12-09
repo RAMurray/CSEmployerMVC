@@ -23,11 +23,17 @@ namespace CSEmployerMVC.Models
         [Required]
         public string Location { get; set; }
 
+        public string Candidates { get; set;  }
+
+        public List<Applicant> CandidatesList { get; set; }
+     
+
+
         [ForeignKey("Employer")]
         public int EmployerID { get; set; }
 
         public virtual Employer Employer { get; set; }
-        public virtual List List { get; set; }
+        public virtual ICollection<Applicant> Applicants { get; set; }
 
     }
 }

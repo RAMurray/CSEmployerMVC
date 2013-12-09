@@ -83,7 +83,7 @@ namespace CSEmployerMVC.Models
         public string KnownPL5 { get; set; }
 
 
-        public virtual List List { get; set; }
+        public virtual ICollection<Job> Jobs { get; set; }
         public ICollection<PGLanguage> PGLanguages { get; set; }
 
         public string FullName

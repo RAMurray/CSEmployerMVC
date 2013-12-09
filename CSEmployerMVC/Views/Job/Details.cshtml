@@ -1,0 +1,50 @@
+﻿@model CSEmployerMVC.Models.Job
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Job</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Department)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Department)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Recruiter)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Recruiter)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Employer.CompanyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Employer.CompanyName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

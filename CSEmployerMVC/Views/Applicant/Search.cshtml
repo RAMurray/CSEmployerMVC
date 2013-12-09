@@ -10,12 +10,12 @@
 <p>
   <!-- @Html.ActionLink("Create New", "Create") -->
      @using (Html.BeginForm()){
-         <p><b>Degree</b>: @Html.DropDownList("appDegree", "All") <span style="width:20px">&nbsp;</span>
-         <b>Known Langauges</b>: @Html.TextBox("SearchString")
+         <p>
+         <b>Known Langauges or Degree</b>: @Html.TextBox("SearchString")<span style="width:20px">&nbsp;</span>
          <input type="submit" value="Filter" /></p>
         }
 </p>
-<table class="table table-hover">
+<table class="table">
     <tr>
         <th>Name</th>
         <th>
@@ -52,11 +52,11 @@
          <td colspan="2">
             <p><b>Email</b></p>@Html.DisplayFor(modelItem => item.Email)
         </td>
-        <td colspan="2">
-            <p><b>Phone:</b> @Html.DisplayFor(modelItem => item.Phone) </p>
-            <p><b>Fax:</b> @Html.DisplayFor(modelItem => item.Fax)</p>
+        <td >
+            <p><b>Phone:</b> @Html.DisplayFor(modelItem => item.Phone) <br />
+            <b>Fax:</b> @Html.DisplayFor(modelItem => item.Fax)</p>
         </td>
-         <td colspan="2">
+         <td>
             <p><b>Known Programming Languages:</b> <br> @Html.DisplayFor(modelItem => item.KnownLanguages)</p>
         </td>
         <td colspan="2">
@@ -69,4 +69,34 @@
 
     <!-- actionlink("Text", "link") -->
 </table>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          <b>Employer Tools</b>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+         <h4>Add Applicant to Candidate List</h4>
+          
+          <dl>
+              <dt>Applicant's Last Name</dt>
+              <dd>@Html.TextBox("CLName")</dd>
+
+              <dt>Enter your Company's password:</dt>
+              <dd>@Html.TextBox("Password")</dd>
+          </dl>
+        <input type="submit" value="Add" />    
+                
+           
+
+          <p class="error">@ViewBag.ConcurrencyErrorMessage</p>
+
+      </div>
+    </div>
+  </div>
+
 

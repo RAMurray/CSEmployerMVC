@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CSEmployerMVC.Models
 {
@@ -41,12 +42,11 @@ namespace CSEmployerMVC.Models
         public string Fax { get; set; }
 
         /* Login information */
-
         [Required]
-        public string eUsername { get; set; }
-
-        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string ePassword { get; set; }
+
 
         public virtual ICollection<Job> Jobs { get; set; }
     }

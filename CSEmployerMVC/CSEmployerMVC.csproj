@@ -173,9 +173,13 @@
     <Compile Include="Classes\CSEDataContext.cs" />
     <Compile Include="Classes\DataContextInitializer.cs" />
     <Compile Include="Classes\HtmlHelperExtensions.cs" />
+    <Compile Include="Classes\SimpleMembershipAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
+    <Compile Include="Controllers\EmployerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
+    <Compile Include="Controllers\ResumeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,23 +196,47 @@
     <Compile Include="Migrations\201311080013406_3rdInitialize.Designer.cs">
       <DependentUpon>201311080013406_3rdInitialize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311121904292_4thInitialize.cs" />
+    <Compile Include="Migrations\201311121904292_4thInitialize.Designer.cs">
+      <DependentUpon>201311121904292_4thInitialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311152224184_5thInitialize.cs" />
+    <Compile Include="Migrations\201311152224184_5thInitialize.Designer.cs">
+      <DependentUpon>201311152224184_5thInitialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312041811423_6thInitialize.cs" />
+    <Compile Include="Migrations\201312041811423_6thInitialize.Designer.cs">
+      <DependentUpon>201312041811423_6thInitialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312061742471_7thInitialize.cs" />
+    <Compile Include="Migrations\201312061742471_7thInitialize.Designer.cs">
+      <DependentUpon>201312061742471_7thInitialize.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Applicant.cs" />
     <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\Job.cs" />
-    <Compile Include="Models\List.cs" />
     <Compile Include="Models\PGLanguage.cs" />
     <Compile Include="Models\Resume.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CSEmployerSite.mdf" />
+    <Content Include="App_Data\CSEmployerSite_log.ldf">
+      <DependentUpon>CSEmployerSite.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\Chosen\chosen-sprite%402x.png" />
+    <Content Include="Content\Chosen\chosen-sprite.png" />
+    <Content Include="Content\Chosen\chosen.css" />
+    <Content Include="Content\Chosen\chosen.jquery.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -348,10 +376,26 @@
     <Content Include="Views\Applicant\Search.cshtml" />
     <Content Include="Views\Shared\enumString.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Views\Employer\Index.cshtml" />
+    <Content Include="Views\Employer\Details.cshtml" />
+    <Content Include="Views\Employer\Create.cshtml" />
+    <Content Include="Views\Employer\Edit.cshtml" />
+    <Content Include="Views\Employer\Delete.cshtml" />
+    <Content Include="Views\Employer\LogOn.cshtml" />
+    <Content Include="Views\Employer\Profile.cshtml" />
+    <Content Include="Views\List\Index.cshtml" />
+    <Content Include="Views\List\Details.cshtml" />
+    <Content Include="Views\List\Create.cshtml" />
+    <Content Include="Views\List\Edit.cshtml" />
+    <Content Include="Views\List\Delete.cshtml" />
+    <Content Include="Views\Job\Index.cshtml" />
+    <Content Include="Views\Job\Details.cshtml" />
+    <Content Include="Views\Job\Create.cshtml" />
+    <Content Include="Views\Job\Edit.cshtml" />
+    <Content Include="Views\Job\Delete.cshtml" />
+    <Content Include="Views\Job\Manage.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -367,6 +411,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201311080013406_3rdInitialize.resx">
       <DependentUpon>201311080013406_3rdInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311121904292_4thInitialize.resx">
+      <DependentUpon>201311121904292_4thInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311152224184_5thInitialize.resx">
+      <DependentUpon>201311152224184_5thInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312041811423_6thInitialize.resx">
+      <DependentUpon>201312041811423_6thInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312061742471_7thInitialize.resx">
+      <DependentUpon>201312061742471_7thInitialize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -17,12 +17,10 @@ namespace CSEmployerMVC.Classes
 
             public DbSet<Applicant> Applicants { get; set; }
             public DbSet<Employer> Employers { get; set; }
-            public DbSet<List> Lists { get; set; }
             public DbSet<Job> Jobs { get; set; }
             public DbSet<Resume> Resumes { get; set; }
             public DbSet<PGLanguage> ProLanguage { get; set; }
-          
-
+        
             protected void OnModelCreating(DbModelBuilder modelBuilder)
             {
  
@@ -43,8 +41,15 @@ namespace CSEmployerMVC.Classes
                                m.MapRightKey("PLanguageID");
                                m.ToTable("APL");
                            });
-            }
+                   //Sets up many-to-many relationship with Jobs and Applicants.
+                   modelBuilder.Entity<Job>()
+                     .HasMany(a => a.Applicants).WithMany(j => j.Jobs)
+                     .Map(t => t.MapLeftKey("JobID")
+                     .MapRightKey("ApplicantID")
+                     .ToTable("JobApplicant"));
+              }
+            
 
-        }
-   
+        
+   }
 }
