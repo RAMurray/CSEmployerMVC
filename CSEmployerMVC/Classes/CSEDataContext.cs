@@ -44,9 +44,13 @@ namespace CSEmployerMVC.Classes
                    //Sets up many-to-many relationship with Jobs and Applicants.
                    modelBuilder.Entity<Job>()
                      .HasMany(a => a.Applicants).WithMany(j => j.Jobs)
-                     .Map(t => t.MapLeftKey("JobID")
-                     .MapRightKey("ApplicantID")
-                     .ToTable("JobApplicant"));
+                     .Map(
+                     t => 
+                     {    
+                        t.MapLeftKey("JobID");
+                        t.MapRightKey("ApplicantID");
+                        t.ToTable("JobApplicant");
+                     });
               }
             
 

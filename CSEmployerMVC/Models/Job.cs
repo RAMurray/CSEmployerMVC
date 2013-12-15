@@ -33,7 +33,7 @@ namespace CSEmployerMVC.Models
         public int EmployerID { get; set; }
 
         public virtual Employer Employer { get; set; }
-        public virtual ICollection<Applicant> Applicants { get; set; }
+        public ICollection<Applicant> Applicants { get; set; }
 
     }
 }

@@ -31,27 +31,24 @@
                 <th>Location</th>
                 <th></th>
             </tr>
+            @foreach (var item in Model.Jobs.Where(x => x.EmployerID == x.Employer.ID)){
             <tr class="mainrow">
-             @foreach (var item in Model.Jobs.Where(x => x.EmployerID == x.Employer.ID)){
-                
                 <td>@Html.DisplayFor(modelItem => item.JobTitle)</td> 
                 <td>@Html.DisplayFor(modelItem => item.Department)</td>
                 <td>@Html.DisplayFor(modelItem => item.Recruiter)</td>
                 <td>@Html.DisplayFor(modelItem => item.Location)</td>
                 <td><section><span class="glyphicon glyphicon-plus"></span></section></td>
-            }
             </tr>
             <tr class="subrow active">
-                 @foreach (var item in Model.Jobs.Where(x => x.EmployerID == x.Employer.ID)){
-                     <td><p><b>Candidates:</b>@Html.DisplayFor(modelItem => item.Candidates)</p></td> 
-                     <td><button type="button" class="btn btn-default" title="Candidates" value="C" onclick="location.href='@Url.Action("Manage", "Job")'">Manage Candidates</button></td>
-                     <td>
-                        @Html.ActionLink("Edit", "../Job/Edit", new { id=item.ID }) |
-                        @Html.ActionLink("Details", "../Job/Details", new { id=item.ID }) |
-                        @Html.ActionLink("Delete", "../Job/Delete", new { id=item.ID })
-                    </td>  
-                 }
+                <td><p><b>Candidates:</b>@Html.DisplayFor(modelItem => item.Candidates)</p></td> 
+                <td><button type="button" class="btn btn-default" title="Candidates" value="C" onclick="location.href='@Url.Action("Manage", "Job")'">Manage Candidates</button></td>
+                <td>
+                @Html.ActionLink("Edit", "../Job/Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "../Job/Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "../Job/Delete", new { id=item.ID })
+            </td>  
             </tr>
+            }
 
         </table>
         <button type="button" class="btn btn-info" title="Create Job" value="J" onclick="location.href='@Url.Action("Create", "Job")'">Create Job</button>

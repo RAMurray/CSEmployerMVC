@@ -81,8 +81,8 @@
             <button type="button" class="btn btn-info" title="SignIn" value="S" onclick="location.href='@Url.Action("Profile", "Employer", new { id = item.ID })'">Profile</button>
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID })<br />
+            @Html.ActionLink("Details", "Details", new { id=item.ID })<br />
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
