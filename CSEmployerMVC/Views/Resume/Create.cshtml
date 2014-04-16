@@ -1,0 +1,104 @@
+﻿@model CSEmployerMVC.Models.Resume
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Resume</legend>
+        <div class="editor-label">
+            <h4>Select Your Name:</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ApplicantID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ApplicantID)
+        </div>
+        
+        <h3>Education</h3>
+
+        <div class="editor-label">
+           @Html.LabelFor(model => model.LastEmployer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastEmployer)
+            @Html.ValidationMessageFor(model => model.LastEmployer)
+        </div>
+
+        <div class="editor-label">
+            <h4>Previous Job Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastJobTitle)
+            @Html.ValidationMessageFor(model => model.LastJobTitle)
+        </div>
+
+        <div class="editor-label">
+            <h4>Length of Employment</h4>
+            <p>In format of start date Month Year - ending date Month year (If currently still at job put present)</p>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastJobLength)
+            @Html.ValidationMessageFor(model => model.LastJobLength)
+        </div>
+
+        <div class="editor-label">
+            <h4>Previous Job Dutties:</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousJobDuties)
+            @Html.ValidationMessageFor(model => model.PreviousJobDuties)
+        </div>
+
+        <h3>Education</h3>
+        <div class="editor-label">
+           @Html.LabelFor(model => model.SchoolName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SchoolName)
+            @Html.ValidationMessageFor(model => model.SchoolName)
+        </div>
+
+        <div class="editor-label">
+            <h4>Degree(s) Earned <small>seperate by comma</small></h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DegreeEarned)
+            @Html.ValidationMessageFor(model => model.DegreeEarned)
+        </div>
+
+        <div class="editor-label">
+            <h4>Length of Study</h4>
+            <p>In format of start date Month Year - ending date Month year (If currently still at school put present)</p>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SchoolStayLength)
+            @Html.ValidationMessageFor(model => model.SchoolStayLength)
+        </div>
+
+        <h3>Skills</h3>
+        <div class="editor-label">
+            <h4>Job related Skills:</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ContentSkills)
+            @Html.ValidationMessageFor(model => model.ContentSkills)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

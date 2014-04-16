@@ -1,0 +1,7 @@
+10/24/2013 4:25:39 PM: Entity of type "Applicant" in state "Added" has the following validation errors:
+- Property: "State", Error: "The State field is required."
+10/24/2013 4:25:39 PM: Entity of type "Applicant" in state "Added" has the following validation errors:
+- Property: "State", Error: "The field State must be a string with a maximum length of 2."
+- Property: "Email", Error: "The field Email must be a string with a maximum length of 30."
+10/24/2013 4:28:36 PM: Entity of type "Applicant" in state "Added" has the following validation errors:
+- Property: "State", Error: "The field State must be a string with a maximum length of 2."

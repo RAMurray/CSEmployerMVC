@@ -1,0 +1,44 @@
+﻿@model CSEmployerMVC.Models.Resume
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Resume</legend>
+
+       <dl>
+        <dt>Full Name</dt>
+        <dd>@Html.DisplayFor(model => model.Applicant.FullName)</dd>
+
+        <dt>@Html.LabelFor(model => model.LastEmployer)</dt>
+        <dd>@Html.DisplayFor(model => model.LastEmployer)</dd>
+
+        <dt>Previous Job Title</dt>
+        <dd>@Html.DisplayFor(model => model.LastJobTitle)</dd>
+
+        <dt>Length Of Employment</dt>
+        <dd>@Html.DisplayFor(model => model.LastJobLength)</dd>
+
+        <dt>@Html.LabelFor(model => model.PreviousJobDuties)</dt>
+        <dd>@Html.DisplayFor(model => model.PreviousJobDuties)</dd>
+
+        <dt>@Html.LabelFor(model => model.SchoolName)</dt>
+        <dd>@Html.DisplayFor(model => model.SchoolName)</dd>
+
+        <dt>@Html.LabelFor(model => model.DegreeEarned)</dt>
+        <dd>@Html.DisplayFor(model => model.DegreeEarned)</dd>
+
+        <dt>@Html.LabelFor(model => model.SchoolStayLength)</dt>
+        <dd>@Html.DisplayFor(model => model.SchoolStayLength)</dd>
+
+        <dt>@Html.LabelFor(model => model.ContentSkills)</dt>
+        <dd>@Html.DisplayFor(model => model.ContentSkills)</dd>
+
+    </dl>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ApplicantID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,80 @@
+﻿@model CSEmployerMVC.Models.Resume
+@{
+    Layout = null;    
+}
+
+<!-- NOTE: RazorPDF uses an older version of iText XML that uses Java to create PDFs (http://stackoverflow.com/questions/16107011/where-can-i-find-an-itext-xml-reference). 
+            There isn't much free documentation for this version iText  except: http://stderr.org/doc/libitext-java-doc/www/examples/Chap0701.xml 
+            and RazorPDF's github page: https://gist.github.com/RazorAnt/3998480  For more documentation of iText you have to "buy" the book. -->
+
+
+<itext creationdate="@DateTime.Now.ToString()" producer="RazorPDF">
+    
+
+
+ <table width="100%" cellpadding="1.0" cellspacing="1.0"  widths="5;5">
+    <row>
+	    <cell borderwidth="0.5" left="false" right="false" top="false" bottom="true">
+            <paragraph style="font-family:Helvetica;font-size:24px;font-weight:bold;font-style:italic;">
+	            @ViewBag.Title
+            </paragraph>
+	    </cell>
+         <cell borderwidth="0.5" left="false" right="false" top="false" bottom="true">
+            <paragraph style="font-family:Helvetica;font-size:16px;font-weight:bold;font-style:normal; text-align:right;">
+	            <chunk red="0" green="0" blue="0"></chunk>
+            </paragraph>
+	    </cell>
+    </row>
+</table>
+<newline />
+<paragraph style="font-family:Helvetica;font-size:16px;font-weight:bold;font-style:normal;">
+    <chunk red="0" green="0" blue="0">@Model.Applicant.FullName</chunk>
+</paragraph>
+<paragraph style="font-family:Helvetica;font-size:14px;font-weight:100;font-style:normal;">
+    <chunk red="0" green="0" blue="0">@Model.Applicant.Address</chunk>
+</paragraph>
+<paragraph style="font-family:Helvetica;font-size:14px;font-weight:100;font-style:normal;">
+    <chunk red="0" green="0" blue="0">@Model.Applicant.City, @Model.Applicant.State @Model.Applicant.Zip</chunk>
+</paragraph>
+<paragraph style="font-family:Helvetica;font-size:14px;font-weight:100;font-style:normal;">
+    <chunk red="0" green="0" blue="0">@Model.Applicant.Phone</chunk>
+</paragraph>
+<paragraph style="font-family:Helvetica;font-size:14px;font-weight:100;font-style:normal;">
+     <chunk red="0" green="0" blue="0">@Model.Applicant.Email</chunk>
+</paragraph>
+
+<table width="100%" cellpadding="1.0" cellspacing="1.0"  widths="5;5">
+    <row>
+	    <cell borderwidth="0.5" left="false" right="false" top="false" bottom="true"><paragraph style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;">Education</paragraph></cell>
+        <cell borderwidth="0" left="false" right="false" top="false" bottom="true"><paragraph style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal; text-align:right;"></paragraph></cell>
+    </row>
+    <row>
+        <cell borderwidth="0" left="false" right="false" top="false" bottom="true"><paragraph style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-align:left;">@Model.SchoolName</paragraph></cell>
+        <cell borderwidth="0" left="false" right="false" top="false" bottom="true"><paragraph style="font-family:Helvetica;font-size:12px;font-weight:normal;font-style:normal;text-align:right;">@Model.SchoolStayLength</paragraph></cell>
+    </row>
+</table> 
+@Model.DegreeEarned
+<newline />
+ 
+<table width="100%" cellpadding="1.0" cellspacing="1.0"  widths="5;5">
+    <row>
+	    <cell borderwidth="0.5" left="false" right="false" top="false" bottom="true" style="font-weight:bold;"><paragraph style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-align:left;">Employment</paragraph></cell>
+         <cell borderwidth="0" left="false" right="false" top="false" bottom="true"><paragraph style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal; text-align:right;"></paragraph></cell>
+    </row>
+    <row>
+        <cell borderwidth="0" left="false" right="false" top="false" bottom="true"><paragraph style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-align:left;">@Model.LastEmployer, @Model.LastJobTitle</paragraph></cell>
+        <cell borderwidth="0" left="false" right="false" top="false" bottom="true"><paragraph style="font-family:Helvetica;font-size:12px;font-weight:normal;font-style:normal;text-align:right;">@Model.LastJobLength</paragraph></cell>
+    </row>
+</table> 
+@Model.PreviousJobDuties
+<newline />
+
+<table width="100%" cellpadding="1.0" cellspacing="1.0"  widths="5;5">
+    <row>
+	    <cell borderwidth="0.5" left="false" right="false" top="false" bottom="true"><paragraph style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;">Skills</paragraph></cell>
+    </row>
+</table> 
+@Model.ContentSkills
+<newline />
+ 
+</itext>
