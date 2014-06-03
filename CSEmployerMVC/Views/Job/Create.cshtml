@@ -1,0 +1,123 @@
+﻿@model CSEmployerMVC.Models.Job
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Job</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobTitle)
+            @Html.ValidationMessageFor(model => model.JobTitle)
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Department)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Department)
+            @Html.ValidationMessageFor(model => model.Department)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PositionType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PositionType", String.Empty)
+            @Html.ValidationMessageFor(model => model.PositionType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HoursPerWeek)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HoursPerWeek)
+            @Html.ValidationMessageFor(model => model.HoursPerWeek)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Recruiter)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Recruiter)
+            @Html.ValidationMessageFor(model => model.Recruiter)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Location)
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Salary)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Salary)
+            @Html.ValidationMessageFor(model => model.Salary)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PayRate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PayRate)
+            @Html.ValidationMessageFor(model => model.PayRate)
+        </div>
+        <br />
+         <div class="editor-label">
+            <b>Required Degree</b>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.reqDegree)
+            @Html.ValidationMessageFor(model => model.reqDegree)
+        </div>
+        <br />
+        <div class="editor-label">
+            <b>Required Years of Experience</b>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.reqYearsExp)
+            @Html.ValidationMessageFor(model => model.reqYearsExp)
+        </div>
+        <br />
+        <div class="editor-label">
+            <b>Required Programming Languages to know:</b>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.reqPGLanguages)
+            @Html.ValidationMessageFor(model => model.reqPGLanguages)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmployerID, "Employer")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("EmployerID", String.Empty)
+            @Html.ValidationMessageFor(model => model.EmployerID)
+        </div>
+        <br />
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

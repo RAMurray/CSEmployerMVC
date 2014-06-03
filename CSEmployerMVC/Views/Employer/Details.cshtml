@@ -1,0 +1,88 @@
+﻿@model CSEmployerMVC.Models.Employer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<fieldset>
+    <legend>Employer</legend>
+    <dl class="dl-horizontal">
+        <dt>
+             @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+             @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+             @Html.DisplayNameFor(model => model.Zip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Zip)
+        </dd>
+
+        <dt>
+             @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+             @Html.DisplayNameFor(model => model.State)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+             @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+             @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+             @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+             @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+        <dt>
+             @Html.DisplayNameFor(model => model.ePassword)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ePassword)
+        </dd>
+    </dl>
+</fieldset>
+<p>
+    <div class="btn-group">
+        <button type="button" class="btn btn-info" title="Edit" value="E" onclick="location.href='@Url.Action("Edit", "Employer", new { id = Model.ID })'">Edit</button>
+        <button type="button" class="btn btn-danger" title="Delete" value="D" onclick="location.href='@Url.Action("Delete", "Delete", new { id = Model.ID })'">Delete</button>
+        <button type="button" class="btn btn-default" title="Back to List" value="T" onclick="location.href='@Url.Action("Index", "Employer")'">Back to List</button>
+    </div>
+
+</p>

@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Info";
+}
+
+@model CSEmployerMVC.Models.Job
+
+<div class="container">
+<h2>Job Info</h2>
+
+<fieldset>
+    <legend>Job</legend>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">@Html.DisplayFor(model => model.Employer.CompanyName)</h3>   
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Contact Information</h4>
+             <address>
+                <p>
+                    <strong>@Html.DisplayFor(model => model.Employer.CompanyName)</strong><br>
+                    @Html.DisplayFor(model => model.Employer.Address)<br>
+                    @Html.DisplayFor(model => model.Employer.City), @Html.DisplayFor(model => model.Employer.State) @Html.DisplayFor(model => model.Employer.Zip)<br />
+                    @Html.DisplayFor(model => model.Employer.Country)<br />
+                    <abbr title="Phone">P:</abbr> @Html.DisplayFor(model => model.Employer.Phone) <br />
+                    <abbr title="Fax">F:</abbr> @Html.DisplayFor(model => model.Employer.Fax) <br />
+                    <a href="mailto:#">@Html.DisplayFor(model => model.Employer.Email)</a>
+                </p>
+            </address>
+          
+            <p><span class="label label-warning">NOTE:</span> When responding to a job opening via Email please put the job title in the subject and title the email to the recruiter (eg Dear Recruit Name).</p>
+      
+        </div>
+        <div class="col-md-9">
+            <h3 class="small"><b>Date Posted:</b>  @Html.DisplayFor(model => model.DatePosted)</h3>
+            <dl>
+                <dt>Job Title</dt>
+                <dd> @Html.DisplayFor(model => model.JobTitle)</dd>
+                <br />
+                <dt>Base @Html.DisplayNameFor(model => model.Salary)</dt>
+                <dd>@Html.DisplayFor(model => model.TotalPayString) </dd>
+                <br />
+                <dt>Position Type:</dt>
+                <dd>@Html.DisplayFor(model => model.PositionType)</dd>
+                <br />
+                <dt>Hours per Week:</dt>
+                <dd>@Html.DisplayFor(model => model.HoursPerWeek)</dd>
+                <br />
+                <dt>@Html.DisplayNameFor(model => model.Department) </dt>
+                <dd>@Html.DisplayFor(model => model.Department) </dd>
+                <br />
+                <dt>@Html.DisplayNameFor(model => model.Location)</dt>
+                <dd>@Html.DisplayFor(model => model.Location)</dd>
+                <br />
+                <dt>@Html.DisplayNameFor(model => model.Recruiter) </dt>
+                <dd>@Html.DisplayFor(model => model.Recruiter) </dd>
+                <br />
+                <dt>Required Degree</dt>
+                <dd>@Html.DisplayFor(model => model.reqDegree)</dd>
+                <br />
+                <dt>Required Years of Experience</dt>
+                <dd>@Html.DisplayFor(model => model.reqYearsExp)</dd>
+                <br />
+                <dt>Required Programming Languages to Know:</dt>
+                <dd>@Html.DisplayFor(model => model.reqPGLanguages)</dd>
+             </dl>
+        </div>
+    </div>
+    
+    
+    
+
+</fieldset>
+    
+<p>
+    @Html.ActionLink("Back to Search", "Search")
+</p>
+</div>

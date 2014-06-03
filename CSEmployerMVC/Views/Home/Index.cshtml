@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CSEmployerMVC.Models.Job>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <h2 class="text-center">Recruiters</h2>
+            <p class="text-center">Create and manage a profile for you company; Post new job new job openings.</p>
+            <a class="btn btn-default btn-lg btn-block" href="Employer/Create"><h3 class="heavy">Create Profile</h3></a>
+            <a class="btn btn-default btn-lg btn-block" href="Employer/Index"><h3 class="heavy">Employer Profiles</h3></a>
+        </div>
+         <div class="col-lg-4">
+            <h2 class="text-center">Search</h2>
+            <p class="text-center">Search for potential applicants and job openings.</p>
+            <a class="btn btn-success btn-lg btn-block" href="Applicant/Search"><h3 class="heavy-white">Applicant Search</h3></a>
+            <a class="btn btn-success btn-lg btn-block" href="Job/Search"><h3 class="heavy-white">Job Openings</h3></a>
+        </div>
+        <div class="col-lg-4">
+            <h2 class="text-center">Job Seekers</h2>
+            <p class="text-center">All applicants wanted! Create a profile with credentials, contact infomation and Resume.</p>
+            <a class="btn btn-primary btn-lg btn-block" href="Applicant/Create"><h3 class="heavy-white">Create Profile</h3></a>
+            <a class="btn btn-primary btn-lg btn-block" href="Applicant/Index"><h3 class="heavy-white">Applicant Profiles</h3></a>
+        </div>
+    </div>
+</div>

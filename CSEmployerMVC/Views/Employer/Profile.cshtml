@@ -1,0 +1,66 @@
+﻿@model CSEmployerMVC.Models.Employer
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<div class="page-header">
+    <h2>@Html.DisplayFor(model => model.CompanyName) <small>'s Profile</small></h2>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <address>
+            <p>
+                <strong>@Html.DisplayFor(model => model.CompanyName)</strong><br>
+                @Html.DisplayFor(model => model.Address)<br>
+                @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.State) @Html.DisplayFor(model => model.Zip)<br />
+                @Html.DisplayFor(model => model.Country)<br />
+                <abbr title="Phone">P:</abbr> @Html.DisplayFor(model => model.Phone) <br />
+                <abbr title="Fax">F:</abbr> @Html.DisplayFor(model => model.Fax) <br />
+                <a href="mailto:#">@Html.DisplayFor(model => model.Email)</a>
+            </p>
+        </address>
+        <br />
+        <div class="btn-group">
+            <button type="button" class="btn btn-info" title="Details" value="D" onclick="location.href='@Url.Action("Details", "Employer", new { id = Model.ID })'">Details</button>
+            <button type="button" class="btn btn-warning" title="Edit" value="E" onclick="location.href='@Url.Action("Edit", "Employer", new { id = Model.ID })'">Edit</button>
+        </div>
+
+    </div>
+    <div class="col-lg-8">
+        <table class="table">
+            <tr>
+                <th>Job Title</th>
+                <th>Department</th>
+                <th>Recruiter</th>
+                <th>Location</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.Jobs.Where(x => x.EmployerID == x.Employer.ID)){
+            <tr class="mainrow">
+                <td>@Html.DisplayFor(modelItem => item.JobTitle)</td> 
+                <td>@Html.DisplayFor(modelItem => item.Department)</td> 
+                <td>@Html.DisplayFor(modelItem => item.Recruiter)</td>
+                <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                <td><section><span class="glyphicon glyphicon-plus"></span></section></td>
+            </tr>
+            <tr class="subrow active">
+                <td><p><b>Posted:</b></p>@Html.DisplayFor(modelItem => item.DatePosted)</td>  
+                <td><p><b>Salary:</b></p>@Html.DisplayFor(modelItem => item.TotalPayString)</td>
+                <td><b>Postion:</b>@Html.DisplayFor(modelItem => item.PositionType)</td>
+                <td>
+                    @Html.ActionLink("Edit", "../Job/Edit", new { id=item.ID }) |
+                    @Html.ActionLink("Details", "../Job/Details", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "../Job/Delete", new { id=item.ID })
+                </td>  
+            </tr>
+            }
+
+        </table>
+        <button type="button" class="btn btn-primary" title="Create Job" value="J" onclick="location.href='@Url.Action("Create", "Job")'">Add Job</button>
+    </div>
+</div>
+
+<br />
+<button type="button" class="btn btn-default" title="Back to List" value="T" onclick="location.href='@Url.Action("Index", "Employer")'">Back to List</button>

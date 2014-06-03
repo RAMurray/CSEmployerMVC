@@ -1,0 +1,178 @@
+﻿@model CSEmployerMVC.Models.Admin
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="page-header">Admin Page</h2>
+
+<h3>Applicant table</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Address</th>
+        <th>Zip</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Phone</th>
+        <th>Fax</th>
+        <th>Email</th>
+        <th>Degree</th>
+        <th>Known Languages</th>
+        <th></th>
+    </tr>
+
+@foreach (var app in Model.Applicants) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => app.FullName)</td>
+        <td>@Html.DisplayFor(modelItem => app.DOB)</td>
+        <td>@Html.DisplayFor(modelItem => app.Address)</td>
+        <td>@Html.DisplayFor(modelItem => app.Zip)</td>
+        <td>@Html.DisplayFor(modelItem => app.City)</td>
+        <td>@Html.DisplayFor(modelItem => app.State)</td>
+        <td>@Html.DisplayFor(modelItem => app.Country)</td>
+        <td>@Html.DisplayFor(modelItem => app.Phone)</td>
+        <td>@Html.DisplayFor(modelItem => app.Fax)</td>
+        <td>@Html.DisplayFor(modelItem => app.Email)</td>
+        <td>@Html.DisplayFor(modelItem => app.Degree)</td>
+        <td>@Html.DisplayFor(modelItem => app.KnownLanguages)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { controller = "Applicant", id = app.ID }) <br />
+            @Html.ActionLink("Details", "Details", new { controller = "Applicant", id = app.ID }) <br />
+            @Html.ActionLink("Delete", "Delete", new { controller = "Applicant", id = app.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<h3>Resume</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Resume</th>
+        <th></th>
+    </tr>
+@foreach (var res in Model.Resumes) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => res.Applicant.FullName)
+        </td>
+        <td>
+            @Html.ActionLink("View Resume", "Pdf", new { controller = "Resume", id = res.ApplicantID })
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { controller = "Resume", id = res.ApplicantID }) |
+            @Html.ActionLink("Details", "Details", new { controller = "Resume", id = res.ApplicantID }) |
+            @Html.ActionLink("Delete", "Delete", new { controller = "Resume", id = res.ApplicantID })
+        </td>
+    </tr>
+}
+</table>
+
+
+<h3>Employer table</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Company Name</th>
+        <th>Address</th>
+        <th>Zip</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Phone</th>
+        <th>Fax</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th></th>
+    </tr>
+
+@foreach (var emp in Model.Employers) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => emp.ID)</td>
+        <td>@Html.DisplayFor(modelItem => emp.CompanyName)</td>
+        <td>@Html.DisplayFor(modelItem => emp.Address)</td>
+        <td>@Html.DisplayFor(modelItem => emp.Zip)</td>
+        <td>@Html.DisplayFor(modelItem => emp.City)</td>
+        <td>@Html.DisplayFor(modelItem => emp.State)</td>
+        <td>@Html.DisplayFor(modelItem => emp.Country)</td>
+        <td>@Html.DisplayFor(modelItem => emp.Phone)</td>
+        <td>@Html.DisplayFor(modelItem => emp.Fax)</td>
+        <td>@Html.DisplayFor(modelItem => emp.Email)</td>
+        <td>@Html.DisplayFor(modelItem => emp.ePassword)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { controller = "Employer", id = emp.ID}) <br />
+            @Html.ActionLink("Details", "Details", new { controller = "Employer", id = emp.ID }) <br />
+            @Html.ActionLink("Delete", "Delete", new { controller = "Employer", id = emp.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<h3>Job Table</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Job Title</th>
+        <th>Department</th>
+        <th>Position Type</th>
+        <th>Hours per Week</th>
+        <th>Recruiter</th>
+        <th>Location</th>
+        <th>Date Posted</th>
+        <th>Required Degree</th>
+        <th>Req Years Experience</th>
+        <th>Req PG Languages</th>
+        <th>Salary</th>
+        <th>Company Name</th>
+        <th></th>
+    </tr>
+
+@foreach (var jb in Model.Jobs) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => jb.JobTitle)</td>
+        <td>@Html.DisplayFor(modelItem => jb.Department)</td>
+        <td>@Html.DisplayFor(modelItem => jb.PositionType)</td>
+        <td>@Html.DisplayFor(modelItem => jb.HoursPerWeek)</td>
+        <td>@Html.DisplayFor(modelItem => jb.Recruiter)</td>
+        <td>@Html.DisplayFor(modelItem => jb.Location)</td>
+        <td>@Html.DisplayFor(modelItem => jb.DatePosted)</td>
+        <td>@Html.DisplayFor(modelItem => jb.reqDegree)</td>
+        <td>@Html.DisplayFor(modelItem => jb.reqYearsExp)</td>
+        <td>@Html.DisplayFor(modelItem => jb.reqPGLanguages)</td>
+        <td>@Html.DisplayFor(modelItem => jb.TotalPayString)</td>
+        <td>@Html.DisplayFor(modelItem => jb.Employer.CompanyName)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { controller = "Job", id = jb.ID}) |
+            @Html.ActionLink("Details", "Details", new { controller = "Job", id = jb.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { controller = "Job", id = jb.ID})
+        </td>
+    </tr>
+}
+</table>
+
+
+<h3>Programming Language Table</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Language Name</th>
+        <th></th>
+    </tr>
+
+@foreach (var pgl in Model.PGLanguages) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => pgl.ID)</td>
+        <td>@Html.DisplayFor(modelItem => pgl.LanguageName)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { controller = "PGLanguage", id = pgl.ID}) |
+            @Html.ActionLink("Details", "Details", new { controller = "PGLanguage", id = pgl.ID}) |
+            @Html.ActionLink("Delete", "Delete", new { controller = "PGLanguage", id = pgl.ID})
+        </td>
+    </tr>
+}
+</table>
+<button type="button" class="btn btn-primary" title="Add Language" value="AL" onclick="location.href='@Url.Action("Create", new { controller = "PGLanguage" })'">Add Programming Language</button>

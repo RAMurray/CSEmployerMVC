@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CSEmployerMVC.Models.Applicant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Applicants Index</h3>
+
+<p>
+     <button type="button" class="btn btn-default" title="Create" value="D" onclick="location.href='@Url.Action("Create New", "Create")'">Create</button>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Full Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+           @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            <button type="button" class="btn btn-info" title="Details" value="T" onclick="location.href='@Url.Action("Details", "Applicant", new { id = item.ID })'">Details</button>
+        </td>
+      
+       <!-- <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td> -->
+    </tr>
+}
+
+</table>
