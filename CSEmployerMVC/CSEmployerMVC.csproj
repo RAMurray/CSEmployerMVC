@@ -280,6 +280,10 @@
     <Compile Include="Migrations\201404101839430_22ndintilization.Designer.cs">
       <DependentUpon>201404101839430_22ndintilization.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409100235158_AddMajorColumntoApplicant.cs" />
+    <Compile Include="Migrations\201409100235158_AddMajorColumntoApplicant.Designer.cs">
+      <DependentUpon>201409100235158_AddMajorColumntoApplicant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -538,6 +542,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201404101839430_22ndintilization.resx">
       <DependentUpon>201404101839430_22ndintilization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409100235158_AddMajorColumntoApplicant.resx">
+      <DependentUpon>201409100235158_AddMajorColumntoApplicant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

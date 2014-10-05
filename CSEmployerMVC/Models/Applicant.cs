@@ -68,6 +68,9 @@ namespace CSEmployerMVC.Models
         [UIHint("Enum")]
         public Degrees Degree { get; set; }
 
+        [StringLength(30)]
+        public string Major { get; set; }
+
         [Display(Name = "Years Exp.")]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Number")]
         [Required]
@@ -101,6 +104,11 @@ namespace CSEmployerMVC.Models
         public string KnownLanguages
         {
             get { return KnownPL1 + " " + KnownPL2 + " " + KnownPL3 + " " + KnownPL4 + " " + KnownPL5; }
+        }
+
+        public string HighestDegree
+        {
+            get { return Degree + " " + Major; }
         }
 
     }

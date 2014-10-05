@@ -117,6 +117,15 @@
                  </div>
 
                 <div class="editor-label">
+                    @Html.LabelFor(model => model.Major)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Major)
+                    @Html.ValidationMessageFor(model => model.Major)
+                </div>
+
+
+                <div class="editor-label">
                     @Html.LabelFor(model => model.YearsExp)<small>Number of years you have worked in computer science field.</small>
                 </div>
                 <div class="editor-field">
